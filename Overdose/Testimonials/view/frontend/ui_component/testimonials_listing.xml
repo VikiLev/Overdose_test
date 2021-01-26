@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">testimonials_listing.testimonials_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>testimonials_listing_columns</spinner>
+        <deps>
+            <dep>testimonials_listing.testimonials_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="testimonials_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Overdose\Testimonials\Ui\DataProvider\ProductList</argument>
+            <argument name="name" xsi:type="string">testimonials_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">testimonials_id</argument>
+            <argument name="requestFieldName" xsi:type="string">testimonials_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="testimonials/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="cacheRequests" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <columns name="testimonials_listing_columns">
+
+        <column name="testimonials_id">
+            <settings>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="title">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">title</label>
+                <editor>
+                    <editorType>text</editorType>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                    </validation>
+                </editor>
+            </settings>
+        </column>
+        <column name="message">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">message</label>
+                <editor>
+                    <editorType>text</editorType>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                    </validation>
+                </editor>
+            </settings>
+        </column>
+        <column name="upload_pic" class="Overdose\Testimonials\Ui\Component\Listing\Column\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail">
+            <settings>
+                <label translate="true">Image</label>
+            </settings>
+        </column>
+    </columns>
+
+</listing>

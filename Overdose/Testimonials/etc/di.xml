@@ -1,0 +1,22 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="overdose_testimonials_testimonials_listing_data_source" xsi:type="string">Overdose\Testimonials\Model\ResourceModel\Testimonials\Grid\Collection</item>
+                <item name="testimonials_listing_data_source" xsi:type="string">Overdose\Testimonials\Model\ResourceModel\Testimonials\Grid\Collection</item>
+
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Overdose\Testimonials\Model\ResourceModel\Testimonials\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">overdose_testimonials</argument>
+            <argument name="resourceModel" xsi:type="string">Overdose\Testimonials\Model\ResourceModel\Testimonials</argument>
+        </arguments>
+    </virtualType>
+
+    <preference for="Overdose\Testimonials\Api\TestimonialsRepositoryInterface" type="Overdose\Testimonials\Model\TestimonialsRepository"/>
+    <preference for="Overdose\Testimonials\Api\Data\TestimonialsInterface" type="Overdose\Testimonials\Model\Data\Testimonials"/>
+    <preference for="Overdose\Testimonials\Api\Data\TestimonialsRSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+
+    </config>
