@@ -2,9 +2,9 @@
     "name": "overdose/module-testimonials",
     "description": "",
     "type": "magento2-module",
+    "version": "1.0.0",
     "license": "OSL-3.0",
     "minimum-stability": "dev",
-    "require": {},
     "autoload": {
         "psr-4": {
             "Overdose\\Testimonials\\": ""
